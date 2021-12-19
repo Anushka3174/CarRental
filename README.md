@@ -3,7 +3,7 @@ This demo shows an alternative to username and password login and request a conn
 It is a Node.js Express app which makes Trinsic Credential API calls.
 
 ## Use Case
-This sample is to simulate a request of proof for web authentication
+This sample is to simulate a request of proof for driving license verification.
 
 ## Prerequisites:
 - [npm](https://www.npmjs.com/get-npm)
@@ -13,9 +13,9 @@ This sample is to simulate a request of proof for web authentication
 
 ### Download project and install dependencies
  1. Clone the repository
- `git clone https://github.com/Anushka3174/SSIVerifierApp.git`
+ `git clone https://github.com/Anushka3174/CarRental.git`
  2. Navigate into the directory
- `cd SSIVerifierApp`
+ `cd CarRental`
  3. Install the dependencies
  `npm install`
  4. Open up the project in a code editor of your choice
@@ -27,9 +27,9 @@ This sample is to simulate a request of proof for web authentication
 ### Start and use the application
 1. Run with npm.
 `npm start`
-2. Open the web app on <a href="http://localhost:3000" target="_blank">localhost:3000</a>, and fill in the desired passport information.
-3. On the top left, you will see a login button. Click on it ![Login](assets/Verifier1.png)
-4. You will see a QR code on the screen. This QR code is asking you to present certain attributes that are required to login.
+2. Open the web app on <a href="http://localhost:3000" target="_blank">localhost:3000</a>. You will see a demo website of a car rental company.
+3. Choose  Click on it ![Login](assets/Verifier1.png)
+4. You will see a QR code on the screen. This QR code is asking you to present certain attributes that are required to book that car.
 ![QR Code](assets/Verifier2.png)
 7. On the Trinsic Wallet mobile app, present the desired information.
 8. In the web app, the QR code modal will close, and the verified information will be displayed.
