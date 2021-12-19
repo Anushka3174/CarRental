@@ -28,11 +28,11 @@ This sample is to simulate a request of proof for driving license verification.
 1. Run with npm.
 `npm start`
 2. Open the web app on <a href="http://localhost:3000" target="_blank">localhost:3000</a>. You will see a demo website of a car rental company.
-3. Choose  Click on it ![Login](assets/Verifier1.png)
+3. Choose  Click on it ![Login](assets/Verifier main.PNG)
 4. You will see a QR code on the screen. This QR code is asking you to present certain attributes that are required to book that car.
-![QR Code](assets/Verifier2.png)
+![QR Code](assets/VerifierQRScan.PNG)
 7. On the Trinsic Wallet mobile app, present the desired information.
-8. In the web app, the QR code modal will close, and the verified information will be displayed.
-![verification accepted](assets/Verifier3.png)
+8. In the web app, the QR code modal will close, and the 'Available to Book' button appears if the requirement is fulfilled.
+![verification accepted](assets/VerifierAvailableButton.png)
 
 
