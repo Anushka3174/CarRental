@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Verifier Reference App</title>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://unpkg.com/qrjs2@0.1.6/qrjs2.js"></script>
+  <script src="javascripts/index.js"></script>
+  <link rel="stylesheet" href="stylesheets/style.css">
+</head>
+
+<body>
+
+<!--Navbar-->
+<nav id="navbar" class="navbar navbar-dark">
+  <a class="navbar-brand nav-element" href="#">Book a car</a>
+  <!--<a class="nav-link nav-element navbar-text" href="https://trinsic.id" target="_blank"><img id="logo" src="images/trinsicLogo.png" alt="trinsic-logo"/></a>-->
+</nav>
+
+<!--Body-->
+<div class="container">
+  <div class="row">
+    <div class="col"></div>
+    <div class="row mt-5">
+      <div class="col-lg-4">
+        <img class="rounded-circle" src="images/car1.jpeg" alt="Generic placeholder image" width="140" height="140">
+        <h2>BMW: min 25 years</h2>
+        <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
+        <button type="submit" class="btn btn-primary submit-button"  onclick="verifyPassport()">VERIFY PASSPORT</button>
+         <button id="verification-accepted" type="submit" id="verify-age" class="btn btn-primary submit-button">Available to book</button>
+
+        </div><!-- /.col-lg-4 -->
+      <div class="col-lg-4">
+        <img class="rounded-circle" src="images/car2.jpg" alt="Generic placeholder image" width="140" height="140">
+        <h2>Tesla</h2>
+        <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
+        <button type="submit" class="btn btn-primary submit-button"  onclick="verifyPassport()">VERIFY PASSPORT</button>
+      </div><!-- /.col-lg-4 -->
+      <div class="col-lg-4">
+        <img class="rounded-circle" src="images/car3.png" alt="Generic placeholder image" width="140" height="140">
+        <h2>KIA</h2>
+        <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+        <button type="submit" class="btn btn-primary submit-button"  onclick="verifyPassport()">VERIFY PASSPORT</button>
+      </div><!-- /.col-lg-4 -->
+    </div><!-- /.row -->
+    <div class="row mt-5">
+      <div class="col-lg-4">
+        <img class="rounded-circle" src="images/car1.jpeg" alt="Generic placeholder image" width="140" height="140">
+        <h2>BMW</h2>
+        <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
+        <button type="submit" class="btn btn-primary submit-button"  onclick="verifyPassport()">VERIFY PASSPORT</button>
+
+      </div><!-- /.col-lg-4 -->
+      <div class="col-lg-4">
+        <img class="rounded-circle" src="images/car2.jpg" alt="Generic placeholder image" width="140" height="140">
+        <h2>Tesla</h2>
+        <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
+        <button type="submit" class="btn btn-primary submit-button"  onclick="verifyPassport()">VERIFY PASSPORT</button>
+      </div><!-- /.col-lg-4 -->
+      <div class="col-lg-4">
+        <img class="rounded-circle" src="images/car3.png" alt="Generic placeholder image" width="140" height="140">
+        <h2>KIA</h2>
+        <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+        <button type="submit" class="btn btn-primary submit-button"  onclick="verifyPassport()">VERIFY PASSPORT</button>
+      </div><!-- /.col-lg-4 -->
+    </div>
+    <!--<div class="col-5">-->
+      <!--<div class="content">-->
+        <!--<h6>Verify your Digital Passport</h6>-->
+        <!--<input type="image" src="images/car4.jpg" alt="Submit" width="200" height="200">-->
+        <!--<button type="submit" class="btn btn-primary submit-button" id="verify-submit" onclick="verifyPassport()">VERIFY PASSPORT</button>-->
+        <!--&lt;!&ndash;<div id="verification-accepted">-->
+          <!--<h5>Verification Accepted!</h5>-->
+          <!--<div class="form-group">-->
+            <!--<label for="verify-full-name">Full Name</label>-->
+            <!--<input type="text" class="form-control" id="verify-full-name" disabled>-->
+          <!--</div>-->
+          <!--<div class="form-group">-->
+            <!--<label for="verify-passport-number">Passport Number</label>-->
+            <!--<input type="text" class="form-control" id="verify-passport-number" disabled>-->
+          <!--</div>-->
+        <!--</div>&ndash;&gt;-->
+      <!--</div>-->
+    <!--</div>-->
+    <div class="col"></div>
+  </div>
+</div>
+
+<div id="modal" class="modal">
+  <div id="modal-content">
+    <span id="close-button" onclick="closeModal()">&times;</span>
+    <p id="modal-text"></p>
+    <div class="centered-spinner d-flex justify-content-center">
+      <div id="spinner" class="spinner-border centered-spinner" role="status">
+        <span class="sr-only centered-spinner">Loading...</span>
+      </div>
+      <img id="qrcode" src="" alt="QR code"/>
+    </div>
+  </div>
+</div>
+
+<script>
+    dataArray = [
+        {
+            model: 'BMW',
+            age: '25',
+            description:"Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna."
+        }
+        ,
+        {
+            model: 'Tesla',
+            age: '30',
+            description:"Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna."
+        }
+        ,
+        {
+            model: 'Kia',
+            age: '18',
+            description:"Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna."
+        },
+    ];
+
+    const modal = document.getElementById("modal");
+  const modalText = document.getElementById("modal-text");
+  const spinner = document.getElementById("spinner");
+  const qr = document.getElementById("qrcode");
+  const accepted = document.getElementById("verification-accepted");
+  const acceptedAge = document.getElementById("verify-age");
+  const acceptedNumber = document.getElementById("verify-passport-number");
+  const passportInput = document.getElementById("passport");
+  passportInput.value = createUUID();
+  window.onclick = function(event) {
+    if (event.target === modal) {
+      closeModal();
+    }
+  }
+</script>
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+</body>
+
+</html>
