@@ -1,4 +1,4 @@
-# Trinsic's Verifier Reference App
+# Driver license Verifier App
 This demo shows an alternative to username and password login and request a connectionless verification.
 It is a Node.js Express app which makes Trinsic Credential API calls.
 
